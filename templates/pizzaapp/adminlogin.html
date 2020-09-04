@@ -1,0 +1,26 @@
+
+
+{% extends "loginforms.html" %}
+{% block content %}
+</div >
+  <div id="loginPictureCover">
+    
+  </div>
+  <form class="loginForm" method="post" action="/adminauthenticate/">
+    {% csrf_token %}
+    <div class="loginFormContainer">
+    <!--<label>username </label> -->
+    
+      <input onfocusout="unSmile()" onfocus="smile()" placeholder="username" name="username">
+    </div>
+    <br>
+    <div class="loginFormContainer">
+    <!-- <label>password </label> -->
+      <input type="password" placeholder="password" name="password">
+      <input type="submit" name="" id="login">
+    {% for message in messages %}
+      <p style="text-align: center;color: red">{{message}}</p>
+    {% endfor %}
+    </div>
+
+{% endblock %}

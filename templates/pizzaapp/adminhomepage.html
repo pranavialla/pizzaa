@@ -1,0 +1,40 @@
+
+
+{% extends 'base.html' %}
+{% block content %} 
+<form style="margin: 20px" method="post" action="/addpizza/">
+	{% csrf_token %}
+  	<div class="container" style="width: 530px";display: block ;margin: "20px">
+  		
+  		<input type="text" placeholder="name" class="form-control" name="pizza" style="width:200px;display: inline;margin:auto">
+  		<input type="number" placeholder="price"class="form-control" name="price" style="width:200px;display: inline;margin:auto">
+  		<input type="submit" name="" style="display: inline" class="btn btn-success" value="add">
+  		{% for message in messages %}
+  <p style="text-align: center;color: red">{{message}}</p>
+  {% endfor %}
+  	</div>
+
+<div class="container" style="width: 70%px;display: block;margin:auto ;margin: 4% 20% 0% 30%">
+	<table style="width: 50% ;background-color: #B0ECF6 ">
+	<tr>
+		<th style="text-align: center;font-size: 120%;font-weight: 1ex ; font-family: "Lucida Console", Courier, monospace;">
+			PIZZA NAME
+		</th>
+		<th style="text-align: center;font-size: 120%;font-weight:1px ;font-family: "Lucida Console", Courier, monospace; ">PIZZA PRICS</th>
+	</tr>
+	{% for pizza in pizzas %}
+		<tr style="padding: 5px">
+			<td style="text-align: center;">{{pizza.name}}</td>
+			<td style="text-align: center;">{{pizza.price}}</td>
+			<td>
+			<a href="/deletepizza/{{pizza.id}}/">
+          <span class="btn btn-danger"></span>
+          </td>
+
+		</tr>
+	{% endfor %}
+	</tr>
+</table>
+</div>
+
+{% endblock %}

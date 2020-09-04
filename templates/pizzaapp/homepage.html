@@ -1,0 +1,35 @@
+
+
+{% extends "loginforms.html" %}
+{% block content %}
+</div>
+  <div id="loginPictureCover"></div>
+    <form method="post" action='signupuser/' class="loginForm" style="width: 255.600">
+        {% csrf_token %}
+        <div class="loginFormContainer">
+      <!--<label>username </label> -->
+        
+          <input onfocusout="unSmile()" onfocus="smile()" placeholder="username" name="username">
+        </div>
+        <br>
+        <div class="loginFormContainer">
+      <!-- <label>password </label> -->
+          <input type="password" placeholder="password" name="password">
+        </div>
+        <div class="loginFormContainer">
+          <input type="text" placeholder="phoneno" name="phoneno">
+        </div>
+        <input type="submit" name="" id="login">
+      </form>
+  {% for message in messages %}
+
+    <p style="text-align: center;color: red">{{message}}</p>
+  {% endfor %}
+  </div>
+  <h4 style="color: white"><a href="loginuser/"> have account?</h4>
+
+  
+  
+  
+</div>
+{% endblock %}
